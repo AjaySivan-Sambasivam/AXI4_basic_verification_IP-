@@ -1,0 +1,198 @@
+D:/AMBA/AXI4_new/src/master/axi_master_agent_top.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/master/axi_master_agent_top.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:28 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/master/axi_master_agent_top.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/master/axi_master_agent_top.sv(1): near "uvm_agent": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/master/axi_master_agent_top.sv(1): Error in class extension specification.
+End time: 17:06:28 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/sequences/slave_sequences/axi_slave_seqc_base.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/sequences/slave_sequences/axi_slave_seqc_base.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:27 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/sequences/slave_sequences/axi_slave_seqc_base.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/sequences/slave_sequences/axi_slave_seqc_base.sv(1): near "uvm_sequence": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/sequences/slave_sequences/axi_slave_seqc_base.sv(1): Error in class extension specification.
+End time: 17:06:27 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_agent.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_agent.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:27 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_agent.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_agent.sv(1): near "uvm_agent": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_agent.sv(1): Error in class extension specification.
+End time: 17:06:27 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_agt.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_agt.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:27 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_agt.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_agt.sv(1): near "uvm_agent": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_agt.sv(1): Error in class extension specification.
+End time: 17:06:28 on Jun 19,2026, Elapsed time: 0:00:01
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/sb/axi_mem_model.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/sb/axi_mem_model.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:28 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/sb/axi_mem_model.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/sb/axi_mem_model.sv(1): near "uvm_component": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/sb/axi_mem_model.sv(1): Error in class extension specification.
+End time: 17:06:28 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/master/axi_master_trans.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/master/axi_master_trans.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:27 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/master/axi_master_trans.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/master/axi_master_trans.sv(1): near "uvm_sequence_item": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/master/axi_master_trans.sv(1): Error in class extension specification.
+End time: 17:06:27 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/axi_tb_top.sv {1 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/axi_tb_top.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:23 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/axi_tb_top.sv 
+-- Compiling module axi_tb_top
+** Note: (vlog-2286) D:/AMBA/AXI4_new/src/axi_tb_top.sv(3): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package axi_pkg
+
+Top level modules:
+	axi_tb_top
+End time: 17:06:24 on Jun 19,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+
+} {} {}} D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_agt_top.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_agt_top.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:28 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_agt_top.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_agt_top.sv(1): near "uvm_agent": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_agt_top.sv(1): Error in class extension specification.
+End time: 17:06:28 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/axi_env.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/axi_env.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:28 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/axi_env.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/axi_env.sv(1): near "uvm_env": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/axi_env.sv(1): Error in class extension specification.
+End time: 17:06:28 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/packages/axi_package.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/packages/axi_package.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:28 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/packages/axi_package.sv 
+-- Compiling package axi_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+** Note: (vlog-2286) D:/AMBA/AXI4_new/src/packages/axi_package.sv(12): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(17): Cannot find `include file "axi_master_trans.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(18): Cannot find `include file "axi_slave_trans.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(21): Cannot find `include file "axi_master_seqc_base.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(22): Cannot find `include file "axi_slave_seqc_base.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(25): Cannot find `include file "axi_ar_channel_m_drv.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(26): Cannot find `include file "axi_ar_channel_m_agent.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(29): Cannot find `include file "axi_r_channel_m_drv.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(30): Cannot find `include file "axi_r_channel_m_agt.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(33): Cannot find `include file "axi_r_channel_s_drv.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(34): Cannot find `include file "axi_r_channel_s_agt.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(37): Cannot find `include file "axi_slave_ar_channel_drv.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(38): Cannot find `include file "axi_slave_ar_channel_agt.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(41): Cannot find `include file "axi_master_agent_top.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(42): Cannot find `include file "axi_slave_agt_top.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(45): Cannot find `include file "axi_mem_model.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(47): Cannot find `include file "axi_env.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+** Error: D:/AMBA/AXI4_new/src/packages/axi_package.sv(48): Cannot find `include file "axi_base_test.sv" in directories:
+    C:/questasim64_10.7c/ovm-2.1.2/../verilog_src/ovm-2.1.2/src, C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src
+End time: 17:06:28 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 17, Warnings: 0
+
+} {8.0 9.0 10.0 11.0 12.0 13.0 14.0 15.0 16.0 17.0 18.0 19.0 20.0 21.0 22.0 23.0 24.0 25.0 26.0 27.0 28.0 29.0 30.0 31.0 32.0 33.0 34.0 35.0 36.0 37.0 38.0 39.0 40.0 41.0} {}} D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_trans.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_trans.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:27 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_trans.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_trans.sv(1): near "uvm_sequence_item": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/slave/drivers/axi_slave_trans.sv(1): Error in class extension specification.
+End time: 17:06:27 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/sequences/master_sequences/axi_master_seqc_base.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/sequences/master_sequences/axi_master_seqc_base.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:27 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/sequences/master_sequences/axi_master_seqc_base.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/sequences/master_sequences/axi_master_seqc_base.sv(1): near "uvm_sequence": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/sequences/master_sequences/axi_master_seqc_base.sv(1): Error in class extension specification.
+End time: 17:06:27 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_drv.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_drv.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:27 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_drv.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_drv.sv(1): near "uvm_driver": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/slave/drivers/ar_channel/axi_slave_ar_channel_drv.sv(1): Error in class extension specification.
+End time: 17:06:27 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/rtl/axi_slave_if.sv {1 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/rtl/axi_slave_if.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:23 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/rtl/axi_slave_if.sv 
+-- Compiling interface axi_slave_if
+
+Top level modules:
+	--none--
+End time: 17:06:23 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} D:/AMBA/AXI4_new/src/tests/axi_base_test.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/tests/axi_base_test.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:28 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/tests/axi_base_test.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/tests/axi_base_test.sv(1): near "uvm_test": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/tests/axi_base_test.sv(1): Error in class extension specification.
+End time: 17:06:28 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}} D:/AMBA/AXI4_new/rtl/axi_master_if.sv {1 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/rtl/axi_master_if.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:23 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/rtl/axi_master_if.sv 
+-- Compiling interface axi_master_if
+
+Top level modules:
+	--none--
+End time: 17:06:23 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_drv.sv {0 {vlog -work work -vopt -sv D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_drv.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 17:06:27 on Jun 19,2026
+vlog -reportprogress 300 -work work -vopt -sv D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_drv.sv 
+** Error: (vlog-13069) D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_drv.sv(1): near "uvm_driver": syntax error, unexpected IDENTIFIER.
+** Error: D:/AMBA/AXI4_new/src/master/drivers/ar_channel/axi_ar_channel_m_drv.sv(1): Error in class extension specification.
+End time: 17:06:27 on Jun 19,2026, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {5.0 7.0} {}}

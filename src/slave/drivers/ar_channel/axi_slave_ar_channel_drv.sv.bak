@@ -1,0 +1,59 @@
+class axi_slave_ar_channel_drv extends uvm_driver#(axi_slave_trans);
+    `uvm_component_utils(axi_slave_ar_channel_drv)
+
+    virtual axi_slave_if vif;
+
+    int delay;
+    
+    function new(string name="axi_slave_ar_channel_drv", uvm_component parent);
+        super.new(name, parent);
+    endfunction 
+
+    function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+        if(!uvm_config_db#(virtual axi_slave_if)::get(this, "", "sif", vif))
+            `uvm_fatal(get_type_name(), "sif_fatal")
+    endfunction 
+
+    function void connect_phase(uvm_phase phase);
+        super.connect_phase(phase);
+    endfunction 
+
+    task initi();
+        @(vif.slave_drv_cb);
+        vif.arready<=0;
+        vif.arvalid<=0;
+        vif.araddr<=0;
+        vif.arsize<=0;
+        vif.arlen<=0;
+        vif.arburst<=0;
+    endtask 
+
+    task run_phase(uvm_phase phase);
+        initi();
+        wait(vif.aresetn == 1);
+        
+        forever begin
+            delay=$urandom_range(0, 10);
+            seq_item_port.get_next_item(req);
+            
+            do begin
+                @(vif.slave_drv_cb);
+            end 
+            while (vif.slave_drv_cb.arvalid == 0);
+
+            repeat(delay) begin 
+                @(vif.slave_drv_cb);
+            end 
+            vif.slave_drv_cb.arready<=1;
+
+            //@(vif.slave_drv_cb); 
+            #5;
+            vif.slave_drv_cb.arready<=0;
+
+            $display("vif.addrs:%0d,", vif.slave_drv_cb.araddr);
+                    
+            seq_item_port.item_done();
+        end 
+    endtask 
+endclass 
