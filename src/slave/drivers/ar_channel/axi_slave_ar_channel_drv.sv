@@ -48,7 +48,7 @@ class axi_slave_ar_channel_drv extends uvm_driver#(axi_slave_trans);
             req.arid=vif.slave_drv_cb.arid;
             req.araddr=vif.slave_drv_cb.araddr;
             req.arvalid=vif.slave_drv_cb.arvalid;
-            req.arready=vif.slave_drv_cb.arready;
+            req.arready=1;
             req.arstrb=vif.slave_drv_cb.arstrb;
             req.arlen=vif.slave_drv_cb.arlen;
             req.arburst=vif.slave_drv_cb.arburst;

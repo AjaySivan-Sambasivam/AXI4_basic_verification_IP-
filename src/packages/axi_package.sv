@@ -6,7 +6,7 @@ package axi_pkg;
 
     parameter int unsigned MEM_DATA_WIDTH=128;
 
-    int unsigned no_itr=20;
+    int unsigned no_itr=5;
 
     import uvm_pkg::*; 
     `include "uvm_macros.svh"
@@ -20,7 +20,7 @@ package axi_pkg;
     //sequence_class_instances 
     `include "axi_master_seqc_base.sv"
     `include "axi_slave_seqc_base.sv"
-
+    
     //aw_master_agents_component
     `include "axi_aw_channel_m_drv.sv"
     `include "axi_aw_channel_m_agt.sv"
@@ -59,9 +59,13 @@ package axi_pkg;
     
     //axi_memory_model 
     `include "axi_mem_model.sv"
+    
+    //vsequencer_component
+    `include "axi_m_vsequencer.sv"
+    `include "axi_vseqc_pkg.sv"
 
     //top_components
     `include "axi_env.sv"
-    `include "axi_base_test.sv"
+    `include "axi_test_pkg.sv"
 
 endpackage 

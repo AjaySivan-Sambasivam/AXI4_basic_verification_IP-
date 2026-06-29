@@ -34,12 +34,17 @@ class axi_w_channel_m_drv extends uvm_driver#(axi_master_trans);
           seq_item_port.get_next_item(req);
 
           @(vif.master_drv_cb);
-          vif.master_drv_cb.wvalid<=1; 
-
-          while(vif.master_drv_cb.wready===0) begin
-            @(vif.master_drv_cb);
+          vif.master_drv_cb.wvalid<=1;
+          vif.master_drv_cb.wdata<=req.wdata; 
+          vif.master_drv_cb.wlast<=req.wlast; 
+          vif.master_drv_cb.wstrb<=req.wstrb;
+           
+          do begin 
+            @(vif.master_mon_cb);
           end 
+          while(vif.master_drv_cb.wready===0);
 
+          @(vif.master_drv_cb);
           vif.master_drv_cb.wvalid<=0;
             
           seq_item_port.item_done();

@@ -3,7 +3,9 @@ class axi_w_channel_s_drv extends uvm_driver#(axi_slave_trans);
 
     virtual axi_slave_if vif; 
 
-    axi_mem_model mem; 
+    axi_mem_model mem;
+    bit [DATA_WIDTH-1:0] data_queue [$];
+    bit [(DATA_WIDTH/8):0] strb_queue [$];
 
     int delay; 
 
@@ -38,9 +40,21 @@ class axi_w_channel_s_drv extends uvm_driver#(axi_slave_trans);
                 @(vif.slave_drv_cb); 
             end 
              vif.slave_drv_cb.wready<=1; 
-
+             data_queue.push_back(vif.slave_drv_cb.wdata);
+             strb_queue.push_back(vif.slave_drv_cb.wstrb);
+                
+             if(vif.slave_drv_cb.wlast==1) begin 
+                /*if(!mem.write_excute(data_queue, strb_queue))
+                    `uvm_fatal(get_type_name(), "write_address_queue_is_not_exsist")*/
+                    mem.data_q=data_queue;
+                    mem.strb_q=strb_queue;
+                    data_queue.delete();
+                    strb_queue.delete();
+             end 
+                
              @(vif.slave_drv_cb)
              vif.slave_drv_cb.wready<=0; 
+
         end 
     endtask 
 endclass 

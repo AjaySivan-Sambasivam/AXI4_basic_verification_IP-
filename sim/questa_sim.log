@@ -1,6 +1,9 @@
-# vsim -c -voptargs="+acc" -do "log -r /*; run -all; quit;" work.axi_tb_top "+UVM_TESTNAME=axi_base_test" "+UVM_VERBOSITY=UVM_HIGH" -sv_seed random -l questa_sim.log 
-# Start time: 16:07:58 on Jun 22,2026
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# vsim -c -voptargs="+acc" -do "log -r /*; run -all; quit;" work.axi_tb_top "+UVM_TESTNAME=axi_smoke_test" "+UVM_VERBOSITY=UVM_HIGH" -sv_seed random -l questa_sim.log 
+# Start time: 00:16:33 on Jun 29,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(61): (vopt-2239) Treating stand-alone use of presumed external function as an implicit VOID cast.
+# ** Warning: D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(103): (vopt-2239) Treating stand-alone use of presumed external function as an implicit VOID cast.
+# ** Warning: D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(120): (vopt-2239) Treating stand-alone use of presumed external function as an implicit VOID cast.
 # //  Questa Sim-64
 # //  Version 10.7c win64 Aug 18 2018
 # //
@@ -24,11 +27,8 @@
 # Loading work.axi_master_if(fast)
 # Loading work.axi_slave_if(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
-# ** Warning: (vsim-8441) Clocking block output vif.slave_drv_cb.arready is not legal in this
-# or another expression.
-#    Time: 0 ps  Iteration: 0  Region: /axi_pkg::axi_slave_ar_channel_drv File: D:/AMBA/AXI4_new/sim/../src/slave/drivers/ar_channel/axi_slave_ar_channel_drv.sv Line: 46
 # Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
-# Sv_Seed = 155321354
+# Sv_Seed = 1559075618
 # log -r /*
 #  run -all
 # ----------------------------------------------------------------
@@ -53,618 +53,140 @@
 # 
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
-# UVM_INFO @ 0: reporter [RNTST] Running test axi_base_test...
+# UVM_INFO @ 0: reporter [RNTST] Running test axi_smoke_test...
 # UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 # ------------------------------------------------------------------
 # Name                         Type                      Size  Value
 # ------------------------------------------------------------------
-# uvm_test_top                 axi_base_test             -     @477 
+# uvm_test_top                 axi_smoke_test            -     @477 
 #   env_h                      axi_env                   -     @484 
 #     axi_m_agt                axi_master_agent_top      -     @491 
-#       ar_channel_agt         axi_ar_channel_m_agent    -     @531 
-#         drv_h                axi_ar_channel_m_drv      -     @546 
-#           rsp_port           uvm_analysis_port         -     @561 
-#           seq_item_port      uvm_seq_item_pull_port    -     @553 
-#         seqr_h               uvm_sequencer             -     @569 
-#           rsp_export         uvm_analysis_export       -     @576 
-#           seq_item_export    uvm_seq_item_pull_imp     -     @670 
+#       ar_channel_agt         axi_ar_channel_m_agent    -     @640 
+#         drv_h                axi_ar_channel_m_drv      -     @655 
+#           rsp_port           uvm_analysis_port         -     @670 
+#           seq_item_port      uvm_seq_item_pull_port    -     @662 
+#         seqr_h               uvm_sequencer             -     @678 
+#           rsp_export         uvm_analysis_export       -     @685 
+#           seq_item_export    uvm_seq_item_pull_imp     -     @779 
 #           arbitration_queue  array                     0     -    
 #           lock_queue         array                     0     -    
 #           num_last_reqs      integral                  32    'd1  
 #           num_last_rsps      integral                  32    'd1  
-#       aw_agt                 axi_aw_channel_m_agt      -     @517 
-#         drv_h                axi_aw_channel_m_drv      -     @794 
-#           rsp_port           uvm_analysis_port         -     @809 
-#           seq_item_port      uvm_seq_item_pull_port    -     @801 
-#         seqr_h               uvm_sequencer             -     @685 
-#           rsp_export         uvm_analysis_export       -     @692 
-#           seq_item_export    uvm_seq_item_pull_imp     -     @786 
+#       aw_agt                 axi_aw_channel_m_agt      -     @626 
+#         drv_h                axi_aw_channel_m_drv      -     @903 
+#           rsp_port           uvm_analysis_port         -     @918 
+#           seq_item_port      uvm_seq_item_pull_port    -     @910 
+#         seqr_h               uvm_sequencer             -     @794 
+#           rsp_export         uvm_analysis_export       -     @801 
+#           seq_item_export    uvm_seq_item_pull_imp     -     @895 
 #           arbitration_queue  array                     0     -    
 #           lock_queue         array                     0     -    
 #           num_last_reqs      integral                  32    'd1  
 #           num_last_rsps      integral                  32    'd1  
-#       r_agt                  axi_r_channel_m_agt       -     @538 
-#         drv_h                axi_r_channel_m_drv       -     @933 
-#           rsp_port           uvm_analysis_port         -     @948 
-#           seq_item_port      uvm_seq_item_pull_port    -     @940 
-#         seqr_h               uvm_sequencer             -     @824 
-#           rsp_export         uvm_analysis_export       -     @831 
-#           seq_item_export    uvm_seq_item_pull_imp     -     @925 
+#       r_agt                  axi_r_channel_m_agt       -     @647 
+#         drv_h                axi_r_channel_m_drv       -     @1042
+#           rsp_port           uvm_analysis_port         -     @1057
+#           seq_item_port      uvm_seq_item_pull_port    -     @1049
+#         seqr_h               uvm_sequencer             -     @933 
+#           rsp_export         uvm_analysis_export       -     @940 
+#           seq_item_export    uvm_seq_item_pull_imp     -     @1034
 #           arbitration_queue  array                     0     -    
 #           lock_queue         array                     0     -    
 #           num_last_reqs      integral                  32    'd1  
 #           num_last_rsps      integral                  32    'd1  
-#       w_agt                  axi_w_channel_m_agt       -     @524 
-#         drv_h                axi_w_channel_m_drv       -     @1073
-#           rsp_port           uvm_analysis_port         -     @1088
-#           seq_item_port      uvm_seq_item_pull_port    -     @1080
-#         seqr_h               uvm_sequencer             -     @964 
-#           rsp_export         uvm_analysis_export       -     @971 
-#           seq_item_export    uvm_seq_item_pull_imp     -     @1065
+#       w_agt                  axi_w_channel_m_agt       -     @633 
+#         drv_h                axi_w_channel_m_drv       -     @1182
+#           rsp_port           uvm_analysis_port         -     @1197
+#           seq_item_port      uvm_seq_item_pull_port    -     @1189
+#         seqr_h               uvm_sequencer             -     @1073
+#           rsp_export         uvm_analysis_export       -     @1080
+#           seq_item_export    uvm_seq_item_pull_imp     -     @1174
 #           arbitration_queue  array                     0     -    
 #           lock_queue         array                     0     -    
 #           num_last_reqs      integral                  32    'd1  
 #           num_last_rsps      integral                  32    'd1  
 #     axi_s_agt                axi_slave_agt_top         -     @498 
-#       ar_agt                 axi_slave_ar_channel_agt  -     @1133
-#         drv_h                axi_slave_ar_channel_drv  -     @1257
-#           rsp_port           uvm_analysis_port         -     @1272
-#           seq_item_port      uvm_seq_item_pull_port    -     @1264
-#         seqr_h               uvm_sequencer             -     @1148
-#           rsp_export         uvm_analysis_export       -     @1155
-#           seq_item_export    uvm_seq_item_pull_imp     -     @1249
+#       ar_agt                 axi_slave_ar_channel_agt  -     @1242
+#         drv_h                axi_slave_ar_channel_drv  -     @1366
+#           rsp_port           uvm_analysis_port         -     @1381
+#           seq_item_port      uvm_seq_item_pull_port    -     @1373
+#         seqr_h               uvm_sequencer             -     @1257
+#           rsp_export         uvm_analysis_export       -     @1264
+#           seq_item_export    uvm_seq_item_pull_imp     -     @1358
 #           arbitration_queue  array                     0     -    
 #           lock_queue         array                     0     -    
 #           num_last_reqs      integral                  32    'd1  
 #           num_last_rsps      integral                  32    'd1  
-#       aw_agt                 axi_aw_channel_s_agt      -     @1103
-#         drv_h                axi_aw_channel_s_drv      -     @1395
-#           rsp_port           uvm_analysis_port         -     @1410
-#           seq_item_port      uvm_seq_item_pull_port    -     @1402
-#         rsp_port             uvm_analysis_port         -     @1118
-#         seq_item_port        uvm_seq_item_pull_port    -     @1110
-#         seqr_h               uvm_sequencer             -     @1286
-#           rsp_export         uvm_analysis_export       -     @1293
-#           seq_item_export    uvm_seq_item_pull_imp     -     @1387
+#       aw_agt                 axi_aw_channel_s_agt      -     @1212
+#         drv_h                axi_aw_channel_s_drv      -     @1504
+#           rsp_port           uvm_analysis_port         -     @1519
+#           seq_item_port      uvm_seq_item_pull_port    -     @1511
+#         rsp_port             uvm_analysis_port         -     @1227
+#         seq_item_port        uvm_seq_item_pull_port    -     @1219
+#         seqr_h               uvm_sequencer             -     @1395
+#           rsp_export         uvm_analysis_export       -     @1402
+#           seq_item_export    uvm_seq_item_pull_imp     -     @1496
 #           arbitration_queue  array                     0     -    
 #           lock_queue         array                     0     -    
 #           num_last_reqs      integral                  32    'd1  
 #           num_last_rsps      integral                  32    'd1  
-#       r_agt                  axi_r_channel_s_agt       -     @1140
-#         drv_h                axi_r_channel_s_drv       -     @1535
-#           rsp_port           uvm_analysis_port         -     @1550
-#           seq_item_port      uvm_seq_item_pull_port    -     @1542
-#         seqr_h               uvm_sequencer             -     @1426
-#           rsp_export         uvm_analysis_export       -     @1433
-#           seq_item_export    uvm_seq_item_pull_imp     -     @1527
+#       r_agt                  axi_r_channel_s_agt       -     @1249
+#         drv_h                axi_r_channel_s_drv       -     @1644
+#           rsp_port           uvm_analysis_port         -     @1659
+#           seq_item_port      uvm_seq_item_pull_port    -     @1651
+#         seqr_h               uvm_sequencer             -     @1535
+#           rsp_export         uvm_analysis_export       -     @1542
+#           seq_item_export    uvm_seq_item_pull_imp     -     @1636
 #           arbitration_queue  array                     0     -    
 #           lock_queue         array                     0     -    
 #           num_last_reqs      integral                  32    'd1  
 #           num_last_rsps      integral                  32    'd1  
-#       w_agt                  axi_w_channel_s_agt       -     @1126
-#         drv_h                axi_w_channel_s_drv       -     @1675
-#           rsp_port           uvm_analysis_port         -     @1690
-#           seq_item_port      uvm_seq_item_pull_port    -     @1682
-#         seqr_h               uvm_sequencer             -     @1566
-#           rsp_export         uvm_analysis_export       -     @1573
-#           seq_item_export    uvm_seq_item_pull_imp     -     @1667
+#       w_agt                  axi_w_channel_s_agt       -     @1235
+#         drv_h                axi_w_channel_s_drv       -     @1784
+#           rsp_port           uvm_analysis_port         -     @1799
+#           seq_item_port      uvm_seq_item_pull_port    -     @1791
+#         seqr_h               uvm_sequencer             -     @1675
+#           rsp_export         uvm_analysis_export       -     @1682
+#           seq_item_export    uvm_seq_item_pull_imp     -     @1776
 #           arbitration_queue  array                     0     -    
 #           lock_queue         array                     0     -    
 #           num_last_reqs      integral                  32    'd1  
 #           num_last_rsps      integral                  32    'd1  
+#     m_vseqr                  axi_m_vsequencer          -     @512 
+#       rsp_export             uvm_analysis_export       -     @519 
+#       seq_item_export        uvm_seq_item_pull_imp     -     @613 
+#       arbitration_queue      array                     0     -    
+#       lock_queue             array                     0     -    
+#       num_last_reqs          integral                  32    'd1  
+#       num_last_rsps          integral                  32    'd1  
 #     mem_h                    axi_mem_model             -     @505 
 # ------------------------------------------------------------------
 # 
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] End Of Elaboration
 # UVM_INFO D:/AMBA/AXI4_new/sim/../src/slave/drivers/r_channel/axi_r_channel_s_drv.sv(40) @ 0: uvm_test_top.env_h.axi_s_agt.r_agt.drv_h [axi_r_channel_s_drv] starting_main_phase
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(9) @ 0: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@m_aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(9) @ 0: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@m_w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(9) @ 0: uvm_test_top.env_h.axi_m_agt.ar_channel_agt.seqr_h@@m_ar_seqc [ar_m_chennal_seqc] Base_Body_seqcs_start's
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/slave_sequences/axi_slave_seqc_base.sv(9) @ 0: uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h@@a_ar_seqc [axi_s_ar_channel_seqc] slave_body_start's
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 85000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:7]. Queue Size: 1
-# Transaction Details:
-# -----------------------------------------
-# Name       Type             Size  Value  
-# -----------------------------------------
-# req        axi_slave_trans  -     @1967  
-#   awready  integral         1     'h0    
-#   awvalid  integral         1     'h1    
-#   awsize   integral         3     'h4    
-#   awburst  integral         2     'h2    
-#   awlen    integral         8     'h1    
-#   awstrb   integral         17    'h1e0c2
-#   awid     integral         6     'h7    
-#   awaddr   integral         32    'h72   
-#   arready  integral         1     'h0    
-#   arvalid  integral         1     'h0    
-#   arid     integral         6     'h0    
-#   araddr   integral         32    'h0    
-#   arstrb   integral         17    'h0    
-#   arsize   integral         3     'h0    
-#   arlen    integral         8     'h0    
-#   arburst  integral         2     'h0    
-#   rready   integral         1     'h0    
-#   rvalid   integral         1     'h0    
-#   rdata    integral         128   'h0    
-#   rid      integral         6     'h0    
-#   rlast    integral         1     'h0    
-#   rresp    integral         2     'h0    
-# -----------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 95000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:16]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @1767                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h10                                                
-#   araddr                       integral         32    'hce                                                
-#   arstrb                       integral         17    'h4f64                                              
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h9                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    55000                                               
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 105000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:12]. Queue Size: 1
-# Transaction Details:
-# ---------------------------------------
-# Name       Type             Size  Value
-# ---------------------------------------
-# req        axi_slave_trans  -     @1972
-#   awready  integral         1     'h0  
-#   awvalid  integral         1     'h1  
-#   awsize   integral         3     'h4  
-#   awburst  integral         2     'h1  
-#   awlen    integral         8     'h4  
-#   awstrb   integral         17    'h6d2
-#   awid     integral         6     'hc  
-#   awaddr   integral         32    'h55 
-#   arready  integral         1     'h0  
-#   arvalid  integral         1     'h0  
-#   arid     integral         6     'h0  
-#   araddr   integral         32    'h0  
-#   arstrb   integral         17    'h0  
-#   arsize   integral         3     'h0  
-#   arlen    integral         8     'h0  
-#   arburst  integral         2     'h0  
-#   rready   integral         1     'h0  
-#   rvalid   integral         1     'h0  
-#   rdata    integral         128   'h0  
-#   rid      integral         6     'h0  
-#   rlast    integral         1     'h0  
-#   rresp    integral         2     'h0  
-# ---------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 145000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:12]. Queue Size: 2
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 0: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 0: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 0: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 95000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:4]. Queue Size: 1
 # Transaction Details:
 # ----------------------------------------
 # Name       Type             Size  Value 
 # ----------------------------------------
-# req        axi_slave_trans  -     @1996 
-#   awready  integral         1     'h0   
-#   awvalid  integral         1     'h1   
-#   awsize   integral         3     'h4   
-#   awburst  integral         2     'h2   
-#   awlen    integral         8     'h2   
-#   awstrb   integral         17    'h4d1e
-#   awid     integral         6     'hc   
-#   awaddr   integral         32    'h46  
-#   arready  integral         1     'h0   
-#   arvalid  integral         1     'h0   
-#   arid     integral         6     'h0   
-#   araddr   integral         32    'h0   
-#   arstrb   integral         17    'h0   
-#   arsize   integral         3     'h0   
-#   arlen    integral         8     'h0   
-#   arburst  integral         2     'h0   
-#   rready   integral         1     'h0   
-#   rvalid   integral         1     'h0   
-#   rdata    integral         128   'h0   
-#   rid      integral         6     'h0   
-#   rlast    integral         1     'h0   
-#   rresp    integral         2     'h0   
-# ----------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 185000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:15]. Queue Size: 1
-# Transaction Details:
-# -----------------------------------------
-# Name       Type             Size  Value  
-# -----------------------------------------
-# req        axi_slave_trans  -     @2020  
-#   awready  integral         1     'h0    
-#   awvalid  integral         1     'h1    
-#   awsize   integral         3     'h4    
-#   awburst  integral         2     'h2    
-#   awlen    integral         8     'h9    
-#   awstrb   integral         17    'h1eb05
-#   awid     integral         6     'hf    
-#   awaddr   integral         32    'hec   
-#   arready  integral         1     'h0    
-#   arvalid  integral         1     'h0    
-#   arid     integral         6     'h0    
-#   araddr   integral         32    'h0    
-#   arstrb   integral         17    'h0    
-#   arsize   integral         3     'h0    
-#   arlen    integral         8     'h0    
-#   arburst  integral         2     'h0    
-#   rready   integral         1     'h0    
-#   rvalid   integral         1     'h0    
-#   rdata    integral         128   'h0    
-#   rid      integral         6     'h0    
-#   rlast    integral         1     'h0    
-#   rresp    integral         2     'h0    
-# -----------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 185000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:11]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @1982                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'hb                                                 
-#   araddr                       integral         32    'h1e                                                
-#   arstrb                       integral         17    'hff0b                                              
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h5                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    105000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 255000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:6]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------
-# Name       Type             Size  Value 
-# ----------------------------------------
-# req        axi_slave_trans  -     @2044 
-#   awready  integral         1     'h0   
-#   awvalid  integral         1     'h1   
-#   awsize   integral         3     'h4   
-#   awburst  integral         2     'h2   
-#   awlen    integral         8     'h1   
-#   awstrb   integral         17    'hf1ed
-#   awid     integral         6     'h6   
-#   awaddr   integral         32    'hd5  
-#   arready  integral         1     'h0   
-#   arvalid  integral         1     'h0   
-#   arid     integral         6     'h0   
-#   araddr   integral         32    'h0   
-#   arstrb   integral         17    'h0   
-#   arsize   integral         3     'h0   
-#   arlen    integral         8     'h0   
-#   arburst  integral         2     'h0   
-#   rready   integral         1     'h0   
-#   rvalid   integral         1     'h0   
-#   rdata    integral         128   'h0   
-#   rid      integral         6     'h0   
-#   rlast    integral         1     'h0   
-#   rresp    integral         2     'h0   
-# ----------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 285000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:10]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2048                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'ha                                                 
-#   araddr                       integral         32    'hd8                                                
-#   arstrb                       integral         17    'h4fed                                              
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h3                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    195000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 355000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:1]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2104                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h1                                                 
-#   araddr                       integral         32    'hc9                                                
-#   arstrb                       integral         17    'h1d210                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h6                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    295000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 375000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:3]. Queue Size: 1
-# Transaction Details:
-# ---------------------------------------
-# Name       Type             Size  Value
-# ---------------------------------------
-# req        axi_slave_trans  -     @2084
-#   awready  integral         1     'h0  
-#   awvalid  integral         1     'h1  
-#   awsize   integral         3     'h4  
-#   awburst  integral         2     'h2  
-#   awlen    integral         8     'h7  
-#   awstrb   integral         17    'hdb0
-#   awid     integral         6     'h3  
-#   awaddr   integral         32    'h16 
-#   arready  integral         1     'h0  
-#   arvalid  integral         1     'h0  
-#   arid     integral         6     'h0  
-#   araddr   integral         32    'h0  
-#   arstrb   integral         17    'h0  
-#   arsize   integral         3     'h0  
-#   arlen    integral         8     'h0  
-#   arburst  integral         2     'h0  
-#   rready   integral         1     'h0  
-#   rvalid   integral         1     'h0  
-#   rdata    integral         128   'h0  
-#   rid      integral         6     'h0  
-#   rlast    integral         1     'h0  
-#   rresp    integral         2     'h0  
-# ---------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 385000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:2]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2136                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h2                                                 
-#   araddr                       integral         32    'h41                                                
-#   arstrb                       integral         17    'h10e49                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h6                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    365000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 485000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:8]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2164                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h8                                                 
-#   araddr                       integral         32    'hb2                                                
-#   arstrb                       integral         17    'h19192                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h6                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    395000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 495000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:13]. Queue Size: 1
-# Transaction Details:
-# -----------------------------------------
-# Name       Type             Size  Value  
-# -----------------------------------------
-# req        axi_slave_trans  -     @2152  
-#   awready  integral         1     'h0    
-#   awvalid  integral         1     'h1    
-#   awsize   integral         3     'h4    
-#   awburst  integral         2     'h1    
-#   awlen    integral         8     'h9    
-#   awstrb   integral         17    'h17240
-#   awid     integral         6     'hd    
-#   awaddr   integral         32    'h5b   
-#   arready  integral         1     'h0    
-#   arvalid  integral         1     'h0    
-#   arid     integral         6     'h0    
-#   araddr   integral         32    'h0    
-#   arstrb   integral         17    'h0    
-#   arsize   integral         3     'h0    
-#   arlen    integral         8     'h0    
-#   arburst  integral         2     'h0    
-#   rready   integral         1     'h0    
-#   rvalid   integral         1     'h0    
-#   rdata    integral         128   'h0    
-#   rid      integral         6     'h0    
-#   rlast    integral         1     'h0    
-#   rresp    integral         2     'h0    
-# -----------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 495000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:8]. Queue Size: 2
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2208                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h8                                                 
-#   araddr                       integral         32    'hb2                                                
-#   arstrb                       integral         17    'h19192                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h6                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    495000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 525000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:2]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2224                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h2                                                 
-#   araddr                       integral         32    'ha4                                                
-#   arstrb                       integral         17    'h1569c                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h7                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    505000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 555000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:4]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------
-# Name       Type             Size  Value 
-# ----------------------------------------
-# req        axi_slave_trans  -     @2220 
+# req        axi_slave_trans  -     @2093 
 #   awready  integral         1     'h0   
 #   awvalid  integral         1     'h1   
 #   awsize   integral         3     'h4   
 #   awburst  integral         2     'h1   
-#   awlen    integral         8     'h5   
-#   awstrb   integral         17    'h9f6f
+#   awlen    integral         8     'h4   
+#   awstrb   integral         17    'h65e3
 #   awid     integral         6     'h4   
-#   awaddr   integral         32    'h5b  
+#   awaddr   integral         32    'h88  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
 #   arready  integral         1     'h0   
 #   arvalid  integral         1     'h0   
 #   arid     integral         6     'h0   
@@ -681,55 +203,29 @@
 #   rresp    integral         2     'h0   
 # ----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 605000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:5]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2248                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h5                                                 
-#   araddr                       integral         32    'h13                                                
-#   arstrb                       integral         17    'h15cd0                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h1                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    535000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 605000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:10]. Queue Size: 1
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 95000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 95000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 105000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 195000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:7]. Queue Size: 1
 # Transaction Details:
 # -----------------------------------------
 # Name       Type             Size  Value  
 # -----------------------------------------
-# req        axi_slave_trans  -     @2268  
+# req        axi_slave_trans  -     @2097  
 #   awready  integral         1     'h0    
 #   awvalid  integral         1     'h1    
 #   awsize   integral         3     'h4    
 #   awburst  integral         2     'h1    
-#   awlen    integral         8     'h1    
-#   awstrb   integral         17    'h1bbca
-#   awid     integral         6     'ha    
-#   awaddr   integral         32    'h19   
+#   awlen    integral         8     'h4    
+#   awstrb   integral         17    'h1c6ff
+#   awid     integral         6     'h7    
+#   awaddr   integral         32    'h88   
+#   wdata    integral         128   'h0    
+#   wlast    integral         1     'h0    
+#   wdata    integral         128   'h0    
+#   wstrb    integral         17    'h0    
+#   wready   integral         1     'h0    
+#   wvalid   integral         1     'h0    
 #   arready  integral         1     'h0    
 #   arvalid  integral         1     'h0    
 #   arid     integral         6     'h0    
@@ -746,55 +242,29 @@
 #   rresp    integral         2     'h0    
 # -----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 645000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:10]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2296                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'ha                                                 
-#   araddr                       integral         32    'h97                                                
-#   arstrb                       integral         17    'h1f4fa                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h1                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    615000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 695000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:11]. Queue Size: 1
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 195000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 195000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 205000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 315000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:11]. Queue Size: 1
 # Transaction Details:
 # -----------------------------------------
 # Name       Type             Size  Value  
 # -----------------------------------------
-# req        axi_slave_trans  -     @2292  
+# req        axi_slave_trans  -     @2111  
 #   awready  integral         1     'h0    
 #   awvalid  integral         1     'h1    
 #   awsize   integral         3     'h4    
 #   awburst  integral         2     'h1    
-#   awlen    integral         8     'h2    
-#   awstrb   integral         17    'h1c550
+#   awlen    integral         8     'h4    
+#   awstrb   integral         17    'h180e3
 #   awid     integral         6     'hb    
-#   awaddr   integral         32    'hc6   
+#   awaddr   integral         32    'h88   
+#   wdata    integral         128   'h0    
+#   wlast    integral         1     'h0    
+#   wdata    integral         128   'h0    
+#   wstrb    integral         17    'h0    
+#   wready   integral         1     'h0    
+#   wvalid   integral         1     'h0    
 #   arready  integral         1     'h0    
 #   arvalid  integral         1     'h0    
 #   arid     integral         6     'h0    
@@ -811,55 +281,117 @@
 #   rresp    integral         2     'h0    
 # -----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 725000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:10]. Queue Size: 2
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2324                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'ha                                                 
-#   araddr                       integral         32    'hb3                                                
-#   arstrb                       integral         17    'h1e8b7                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h1                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    655000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 755000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:7]. Queue Size: 2
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 315000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 315000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 325000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 425000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:9]. Queue Size: 1
 # Transaction Details:
 # ----------------------------------------
 # Name       Type             Size  Value 
 # ----------------------------------------
-# req        axi_slave_trans  -     @2348 
+# req        axi_slave_trans  -     @2123 
+#   awready  integral         1     'h0   
+#   awvalid  integral         1     'h1   
+#   awsize   integral         3     'h4   
+#   awburst  integral         2     'h1   
+#   awlen    integral         8     'h4   
+#   awstrb   integral         17    'h36ec
+#   awid     integral         6     'h9   
+#   awaddr   integral         32    'h88  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
+#   arready  integral         1     'h0   
+#   arvalid  integral         1     'h0   
+#   arid     integral         6     'h0   
+#   araddr   integral         32    'h0   
+#   arstrb   integral         17    'h0   
+#   arsize   integral         3     'h0   
+#   arlen    integral         8     'h0   
+#   arburst  integral         2     'h0   
+#   rready   integral         1     'h0   
+#   rvalid   integral         1     'h0   
+#   rdata    integral         128   'h0   
+#   rid      integral         6     'h0   
+#   rlast    integral         1     'h0   
+#   rresp    integral         2     'h0   
+# ----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 425000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 425000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 435000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 465000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 465000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 475000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:6]. Queue Size: 1
+# Transaction Details:
+# -----------------------------------------
+# Name       Type             Size  Value  
+# -----------------------------------------
+# req        axi_slave_trans  -     @2139  
+#   awready  integral         1     'h0    
+#   awvalid  integral         1     'h1    
+#   awsize   integral         3     'h4    
+#   awburst  integral         2     'h1    
+#   awlen    integral         8     'h4    
+#   awstrb   integral         17    'h17881
+#   awid     integral         6     'h6    
+#   awaddr   integral         32    'h88   
+#   wdata    integral         128   'h0    
+#   wlast    integral         1     'h0    
+#   wdata    integral         128   'h0    
+#   wstrb    integral         17    'h0    
+#   wready   integral         1     'h0    
+#   wvalid   integral         1     'h0    
+#   arready  integral         1     'h0    
+#   arvalid  integral         1     'h0    
+#   arid     integral         6     'h0    
+#   araddr   integral         32    'h0    
+#   arstrb   integral         17    'h0    
+#   arsize   integral         3     'h0    
+#   arlen    integral         8     'h0    
+#   arburst  integral         2     'h0    
+#   rready   integral         1     'h0    
+#   rvalid   integral         1     'h0    
+#   rdata    integral         128   'h0    
+#   rid      integral         6     'h0    
+#   rlast    integral         1     'h0    
+#   rresp    integral         2     'h0    
+# -----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 475000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::24 240 169 39 8
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 475000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 875000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 875000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 1235000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 1235000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 1565000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 1565000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 1945000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 1945000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 1945000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 1985000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:4]. Queue Size: 1
+# Transaction Details:
+# ----------------------------------------
+# Name       Type             Size  Value 
+# ----------------------------------------
+# req        axi_slave_trans  -     @2151 
 #   awready  integral         1     'h0   
 #   awvalid  integral         1     'h1   
 #   awsize   integral         3     'h4   
 #   awburst  integral         2     'h2   
-#   awlen    integral         8     'h3   
-#   awstrb   integral         17    'h681e
-#   awid     integral         6     'h7   
-#   awaddr   integral         32    'h6b  
+#   awlen    integral         8     'h0   
+#   awstrb   integral         17    'hf800
+#   awid     integral         6     'h4   
+#   awaddr   integral         32    'hb7  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
 #   arready  integral         1     'h0   
 #   arvalid  integral         1     'h0   
 #   arid     integral         6     'h0   
@@ -876,290 +408,31 @@
 #   rresp    integral         2     'h0   
 # ----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 785000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:8]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2368                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h8                                                 
-#   araddr                       integral         32    'h28                                                
-#   arstrb                       integral         17    'h1cb0                                              
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h7                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    735000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 815000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:7]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2404                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h7                                                 
-#   araddr                       integral         32    'ha5                                                
-#   arstrb                       integral         17    'h1bfc4                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h7                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    795000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 835000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:7]. Queue Size: 2
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2424                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h7                                                 
-#   araddr                       integral         32    'h71                                                
-#   arstrb                       integral         17    'hd6a8                                              
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h9                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    825000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 835000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:6]. Queue Size: 2
-# Transaction Details:
-# -----------------------------------------
-# Name       Type             Size  Value  
-# -----------------------------------------
-# req        axi_slave_trans  -     @2388  
-#   awready  integral         1     'h0    
-#   awvalid  integral         1     'h1    
-#   awsize   integral         3     'h4    
-#   awburst  integral         2     'h2    
-#   awlen    integral         8     'h5    
-#   awstrb   integral         17    'h13de8
-#   awid     integral         6     'h6    
-#   awaddr   integral         32    'h18   
-#   arready  integral         1     'h0    
-#   arvalid  integral         1     'h0    
-#   arid     integral         6     'h0    
-#   araddr   integral         32    'h0    
-#   arstrb   integral         17    'h0    
-#   arsize   integral         3     'h0    
-#   arlen    integral         8     'h0    
-#   arburst  integral         2     'h0    
-#   rready   integral         1     'h0    
-#   rvalid   integral         1     'h0    
-#   rdata    integral         128   'h0    
-#   rid      integral         6     'h0    
-#   rlast    integral         1     'h0    
-#   rresp    integral         2     'h0    
-# -----------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 865000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:10]. Queue Size: 2
-# Transaction Details:
-# -----------------------------------------
-# Name       Type             Size  Value  
-# -----------------------------------------
-# req        axi_slave_trans  -     @2440  
-#   awready  integral         1     'h0    
-#   awvalid  integral         1     'h1    
-#   awsize   integral         3     'h4    
-#   awburst  integral         2     'h2    
-#   awlen    integral         8     'h6    
-#   awstrb   integral         17    'h16b66
-#   awid     integral         6     'ha    
-#   awaddr   integral         32    'hf8   
-#   arready  integral         1     'h0    
-#   arvalid  integral         1     'h0    
-#   arid     integral         6     'h0    
-#   araddr   integral         32    'h0    
-#   arstrb   integral         17    'h0    
-#   arsize   integral         3     'h0    
-#   arlen    integral         8     'h0    
-#   arburst  integral         2     'h0    
-#   rready   integral         1     'h0    
-#   rvalid   integral         1     'h0    
-#   rdata    integral         128   'h0    
-#   rid      integral         6     'h0    
-#   rlast    integral         1     'h0    
-#   rresp    integral         2     'h0    
-# -----------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 865000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:4]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2444                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h4                                                 
-#   araddr                       integral         32    'h1b                                                
-#   arstrb                       integral         17    'h6f9f                                              
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h3                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    845000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 905000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:10]. Queue Size: 3
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2472                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'ha                                                 
-#   araddr                       integral         32    'h53                                                
-#   arstrb                       integral         17    'h1dc05                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h7                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    875000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 945000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:15]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2496                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'hf                                                 
-#   araddr                       integral         32    'h7f                                                
-#   arstrb                       integral         17    'h1246                                              
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h0                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    915000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 965000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:15]. Queue Size: 2
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 1985000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::158 240 218 101 175
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 1985000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 1995000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2045000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 2045000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 2105000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:2]. Queue Size: 1
 # Transaction Details:
 # ----------------------------------------
 # Name       Type             Size  Value 
 # ----------------------------------------
-# req        axi_slave_trans  -     @2468 
+# req        axi_slave_trans  -     @2247 
 #   awready  integral         1     'h0   
 #   awvalid  integral         1     'h1   
 #   awsize   integral         3     'h4   
-#   awburst  integral         2     'h1   
+#   awburst  integral         2     'h2   
 #   awlen    integral         8     'h0   
-#   awstrb   integral         17    'h39db
-#   awid     integral         6     'hf   
-#   awaddr   integral         32    'ha8  
+#   awstrb   integral         17    'h9d2d
+#   awid     integral         6     'h2   
+#   awaddr   integral         32    'hb7  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
 #   arready  integral         1     'h0   
 #   arvalid  integral         1     'h0   
 #   arid     integral         6     'h0   
@@ -1176,55 +449,72 @@
 #   rresp    integral         2     'h0   
 # ----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 1005000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:14]. Queue Size: 1
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 2105000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::157
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 2105000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2115000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2135000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 2135000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 2195000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:13]. Queue Size: 1
 # Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2516                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'he                                                 
-#   araddr                       integral         32    'h95                                                
-#   arstrb                       integral         17    'h15651                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h2                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    955000                                              
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
+# ----------------------------------------
+# Name       Type             Size  Value 
+# ----------------------------------------
+# req        axi_slave_trans  -     @2259 
+#   awready  integral         1     'h0   
+#   awvalid  integral         1     'h1   
+#   awsize   integral         3     'h4   
+#   awburst  integral         2     'h2   
+#   awlen    integral         8     'h0   
+#   awstrb   integral         17    'h51e6
+#   awid     integral         6     'hd   
+#   awaddr   integral         32    'hb7  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
+#   arready  integral         1     'h0   
+#   arvalid  integral         1     'h0   
+#   arid     integral         6     'h0   
+#   araddr   integral         32    'h0   
+#   arstrb   integral         17    'h0   
+#   arsize   integral         3     'h0   
+#   arlen    integral         8     'h0   
+#   arburst  integral         2     'h0   
+#   rready   integral         1     'h0   
+#   rvalid   integral         1     'h0   
+#   rdata    integral         128   'h0   
+#   rid      integral         6     'h0   
+#   rlast    integral         1     'h0   
+#   rresp    integral         2     'h0   
+# ----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 1015000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:14]. Queue Size: 1
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 2195000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::196
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 2195000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2205000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2215000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 2215000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 2265000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:15]. Queue Size: 1
 # Transaction Details:
 # -----------------------------------------
 # Name       Type             Size  Value  
 # -----------------------------------------
-# req        axi_slave_trans  -     @2532  
+# req        axi_slave_trans  -     @2271  
 #   awready  integral         1     'h0    
 #   awvalid  integral         1     'h1    
 #   awsize   integral         3     'h4    
-#   awburst  integral         2     'h1    
-#   awlen    integral         8     'h8    
-#   awstrb   integral         17    'h1e78c
-#   awid     integral         6     'he    
-#   awaddr   integral         32    'h3a   
+#   awburst  integral         2     'h2    
+#   awlen    integral         8     'h0    
+#   awstrb   integral         17    'h1c1af
+#   awid     integral         6     'hf    
+#   awaddr   integral         32    'hb7   
+#   wdata    integral         128   'h0    
+#   wlast    integral         1     'h0    
+#   wdata    integral         128   'h0    
+#   wstrb    integral         17    'h0    
+#   wready   integral         1     'h0    
+#   wvalid   integral         1     'h0    
 #   arready  integral         1     'h0    
 #   arvalid  integral         1     'h0    
 #   arid     integral         6     'h0    
@@ -1241,20 +531,111 @@
 #   rresp    integral         2     'h0    
 # -----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 1035000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:4]. Queue Size: 2
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 2265000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::145
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 2265000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2275000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 2275000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2275000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 2345000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:1]. Queue Size: 1
+# Transaction Details:
+# ----------------------------------------
+# Name       Type             Size  Value 
+# ----------------------------------------
+# req        axi_slave_trans  -     @2283 
+#   awready  integral         1     'h0   
+#   awvalid  integral         1     'h1   
+#   awsize   integral         3     'h4   
+#   awburst  integral         2     'h2   
+#   awlen    integral         8     'h0   
+#   awstrb   integral         17    'hb7ef
+#   awid     integral         6     'h1   
+#   awaddr   integral         32    'hb7  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
+#   arready  integral         1     'h0   
+#   arvalid  integral         1     'h0   
+#   arid     integral         6     'h0   
+#   araddr   integral         32    'h0   
+#   arstrb   integral         17    'h0   
+#   arsize   integral         3     'h0   
+#   arlen    integral         8     'h0   
+#   arburst  integral         2     'h0   
+#   rready   integral         1     'h0   
+#   rvalid   integral         1     'h0   
+#   rdata    integral         128   'h0   
+#   rid      integral         6     'h0   
+#   rlast    integral         1     'h0   
+#   rresp    integral         2     'h0   
+# ----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 2345000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::245
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 2345000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2365000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2365000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 2365000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 2385000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:2]. Queue Size: 1
 # Transaction Details:
 # -----------------------------------------
 # Name       Type             Size  Value  
 # -----------------------------------------
-# req        axi_slave_trans  -     @2564  
+# req        axi_slave_trans  -     @2295  
 #   awready  integral         1     'h0    
 #   awvalid  integral         1     'h1    
 #   awsize   integral         3     'h4    
 #   awburst  integral         2     'h1    
-#   awlen    integral         8     'h8    
-#   awstrb   integral         17    'h16a23
+#   awlen    integral         8     'h4    
+#   awstrb   integral         17    'h15e21
+#   awid     integral         6     'h2    
+#   awaddr   integral         32    'h48   
+#   wdata    integral         128   'h0    
+#   wlast    integral         1     'h0    
+#   wdata    integral         128   'h0    
+#   wstrb    integral         17    'h0    
+#   wready   integral         1     'h0    
+#   wvalid   integral         1     'h0    
+#   arready  integral         1     'h0    
+#   arvalid  integral         1     'h0    
+#   arid     integral         6     'h0    
+#   araddr   integral         32    'h0    
+#   arstrb   integral         17    'h0    
+#   arsize   integral         3     'h0    
+#   arlen    integral         8     'h0    
+#   arburst  integral         2     'h0    
+#   rready   integral         1     'h0    
+#   rvalid   integral         1     'h0    
+#   rdata    integral         128   'h0    
+#   rid      integral         6     'h0    
+#   rlast    integral         1     'h0    
+#   rresp    integral         2     'h0    
+# -----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 2385000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::245
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 2385000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2395000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 2455000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:4]. Queue Size: 1
+# Transaction Details:
+# -----------------------------------------
+# Name       Type             Size  Value  
+# -----------------------------------------
+# req        axi_slave_trans  -     @2315  
+#   awready  integral         1     'h0    
+#   awvalid  integral         1     'h1    
+#   awsize   integral         3     'h4    
+#   awburst  integral         2     'h1    
+#   awlen    integral         8     'h4    
+#   awstrb   integral         17    'h1932a
 #   awid     integral         6     'h4    
-#   awaddr   integral         32    'h44   
+#   awaddr   integral         32    'h48   
+#   wdata    integral         128   'h0    
+#   wlast    integral         1     'h0    
+#   wdata    integral         128   'h0    
+#   wstrb    integral         17    'h0    
+#   wready   integral         1     'h0    
+#   wvalid   integral         1     'h0    
 #   arready  integral         1     'h0    
 #   arvalid  integral         1     'h0    
 #   arid     integral         6     'h0    
@@ -1271,55 +652,361 @@
 #   rresp    integral         2     'h0    
 # -----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 1105000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:6]. Queue Size: 1
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 2455000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::245
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 2455000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2465000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 2495000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:13]. Queue Size: 1
 # Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2556                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'h6                                                 
-#   araddr                       integral         32    'h21                                                
-#   arstrb                       integral         17    'h19b23                                             
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h9                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    1015000                                             
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
+# -----------------------------------------
+# Name       Type             Size  Value  
+# -----------------------------------------
+# req        axi_slave_trans  -     @2327  
+#   awready  integral         1     'h0    
+#   awvalid  integral         1     'h1    
+#   awsize   integral         3     'h4    
+#   awburst  integral         2     'h1    
+#   awlen    integral         8     'h4    
+#   awstrb   integral         17    'h1b4a8
+#   awid     integral         6     'hd    
+#   awaddr   integral         32    'h48   
+#   wdata    integral         128   'h0    
+#   wlast    integral         1     'h0    
+#   wdata    integral         128   'h0    
+#   wstrb    integral         17    'h0    
+#   wready   integral         1     'h0    
+#   wvalid   integral         1     'h0    
+#   arready  integral         1     'h0    
+#   arvalid  integral         1     'h0    
+#   arid     integral         6     'h0    
+#   araddr   integral         32    'h0    
+#   arstrb   integral         17    'h0    
+#   arsize   integral         3     'h0    
+#   arlen    integral         8     'h0    
+#   arburst  integral         2     'h0    
+#   rready   integral         1     'h0    
+#   rvalid   integral         1     'h0    
+#   rdata    integral         128   'h0    
+#   rid      integral         6     'h0    
+#   rlast    integral         1     'h0    
+#   rresp    integral         2     'h0    
+# -----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 1115000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:11]. Queue Size: 2
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 2495000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::245
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 2495000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2505000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 2615000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:15]. Queue Size: 1
 # Transaction Details:
 # ----------------------------------------
 # Name       Type             Size  Value 
 # ----------------------------------------
-# req        axi_slave_trans  -     @2580 
+# req        axi_slave_trans  -     @2335 
+#   awready  integral         1     'h0   
+#   awvalid  integral         1     'h1   
+#   awsize   integral         3     'h4   
+#   awburst  integral         2     'h1   
+#   awlen    integral         8     'h4   
+#   awstrb   integral         17    'h5cb3
+#   awid     integral         6     'hf   
+#   awaddr   integral         32    'h48  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
+#   arready  integral         1     'h0   
+#   arvalid  integral         1     'h0   
+#   arid     integral         6     'h0   
+#   araddr   integral         32    'h0   
+#   arstrb   integral         17    'h0   
+#   arsize   integral         3     'h0   
+#   arlen    integral         8     'h0   
+#   arburst  integral         2     'h0   
+#   rready   integral         1     'h0   
+#   rvalid   integral         1     'h0   
+#   rdata    integral         128   'h0   
+#   rid      integral         6     'h0   
+#   rlast    integral         1     'h0   
+#   rresp    integral         2     'h0   
+# ----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 2615000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::245
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 2615000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2625000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 2725000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:11]. Queue Size: 1
+# Transaction Details:
+# ----------------------------------------
+# Name       Type             Size  Value 
+# ----------------------------------------
+# req        axi_slave_trans  -     @2351 
+#   awready  integral         1     'h0   
+#   awvalid  integral         1     'h1   
+#   awsize   integral         3     'h4   
+#   awburst  integral         2     'h1   
+#   awlen    integral         8     'h4   
+#   awstrb   integral         17    'he1bc
+#   awid     integral         6     'hb   
+#   awaddr   integral         32    'h48  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
+#   arready  integral         1     'h0   
+#   arvalid  integral         1     'h0   
+#   arid     integral         6     'h0   
+#   araddr   integral         32    'h0   
+#   arstrb   integral         17    'h0   
+#   arsize   integral         3     'h0   
+#   arlen    integral         8     'h0   
+#   arburst  integral         2     'h0   
+#   rready   integral         1     'h0   
+#   rvalid   integral         1     'h0   
+#   rdata    integral         128   'h0   
+#   rid      integral         6     'h0   
+#   rlast    integral         1     'h0   
+#   rresp    integral         2     'h0   
+# ----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 2725000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::197 111 111 69 9
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 2725000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 2735000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 2735000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 3085000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 3085000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 3505000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 3505000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 3845000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 3845000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 4145000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 4145000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 4145000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 4185000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:3]. Queue Size: 1
+# Transaction Details:
+# ----------------------------------------
+# Name       Type             Size  Value 
+# ----------------------------------------
+# req        axi_slave_trans  -     @2363 
+#   awready  integral         1     'h0   
+#   awvalid  integral         1     'h1   
+#   awsize   integral         3     'h4   
+#   awburst  integral         2     'h1   
+#   awlen    integral         8     'h4   
+#   awstrb   integral         17    'h2d60
+#   awid     integral         6     'h3   
+#   awaddr   integral         32    'hbd  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
+#   arready  integral         1     'h0   
+#   arvalid  integral         1     'h0   
+#   arid     integral         6     'h0   
+#   araddr   integral         32    'h0   
+#   arstrb   integral         17    'h0   
+#   arsize   integral         3     'h0   
+#   arlen    integral         8     'h0   
+#   arburst  integral         2     'h0   
+#   rready   integral         1     'h0   
+#   rvalid   integral         1     'h0   
+#   rdata    integral         128   'h0   
+#   rid      integral         6     'h0   
+#   rlast    integral         1     'h0   
+#   rresp    integral         2     'h0   
+# ----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 4185000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::156 133 159 37
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 4185000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 4195000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 4275000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:6]. Queue Size: 1
+# Transaction Details:
+# -----------------------------------------
+# Name       Type             Size  Value  
+# -----------------------------------------
+# req        axi_slave_trans  -     @2463  
+#   awready  integral         1     'h0    
+#   awvalid  integral         1     'h1    
+#   awsize   integral         3     'h4    
+#   awburst  integral         2     'h1    
+#   awlen    integral         8     'h4    
+#   awstrb   integral         17    'h1cac2
+#   awid     integral         6     'h6    
+#   awaddr   integral         32    'hbd   
+#   wdata    integral         128   'h0    
+#   wlast    integral         1     'h0    
+#   wdata    integral         128   'h0    
+#   wstrb    integral         17    'h0    
+#   wready   integral         1     'h0    
+#   wvalid   integral         1     'h0    
+#   arready  integral         1     'h0    
+#   arvalid  integral         1     'h0    
+#   arid     integral         6     'h0    
+#   araddr   integral         32    'h0    
+#   arstrb   integral         17    'h0    
+#   arsize   integral         3     'h0    
+#   arlen    integral         8     'h0    
+#   arburst  integral         2     'h0    
+#   rready   integral         1     'h0    
+#   rvalid   integral         1     'h0    
+#   rdata    integral         128   'h0    
+#   rid      integral         6     'h0    
+#   rlast    integral         1     'h0    
+#   rresp    integral         2     'h0    
+# -----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 4275000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::156 133 159 37
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 4275000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 4285000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 4305000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:5]. Queue Size: 1
+# Transaction Details:
+# ----------------------------------------
+# Name       Type             Size  Value 
+# ----------------------------------------
+# req        axi_slave_trans  -     @2475 
+#   awready  integral         1     'h0   
+#   awvalid  integral         1     'h1   
+#   awsize   integral         3     'h4   
+#   awburst  integral         2     'h1   
+#   awlen    integral         8     'h4   
+#   awstrb   integral         17    'ha0ad
+#   awid     integral         6     'h5   
+#   awaddr   integral         32    'hbd  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
+#   arready  integral         1     'h0   
+#   arvalid  integral         1     'h0   
+#   arid     integral         6     'h0   
+#   araddr   integral         32    'h0   
+#   arstrb   integral         17    'h0   
+#   arsize   integral         3     'h0   
+#   arlen    integral         8     'h0   
+#   arburst  integral         2     'h0   
+#   rready   integral         1     'h0   
+#   rvalid   integral         1     'h0   
+#   rdata    integral         128   'h0   
+#   rid      integral         6     'h0   
+#   rlast    integral         1     'h0   
+#   rresp    integral         2     'h0   
+# ----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 4305000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::156 133 159 37
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 4305000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 4315000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 4365000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:7]. Queue Size: 1
+# Transaction Details:
+# ----------------------------------------
+# Name       Type             Size  Value 
+# ----------------------------------------
+# req        axi_slave_trans  -     @2487 
+#   awready  integral         1     'h0   
+#   awvalid  integral         1     'h1   
+#   awsize   integral         3     'h4   
+#   awburst  integral         2     'h1   
+#   awlen    integral         8     'h4   
+#   awstrb   integral         17    'hcd3a
+#   awid     integral         6     'h7   
+#   awaddr   integral         32    'hbd  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
+#   arready  integral         1     'h0   
+#   arvalid  integral         1     'h0   
+#   arid     integral         6     'h0   
+#   araddr   integral         32    'h0   
+#   arstrb   integral         17    'h0   
+#   arsize   integral         3     'h0   
+#   arlen    integral         8     'h0   
+#   arburst  integral         2     'h0   
+#   rready   integral         1     'h0   
+#   rvalid   integral         1     'h0   
+#   rdata    integral         128   'h0   
+#   rid      integral         6     'h0   
+#   rlast    integral         1     'h0   
+#   rresp    integral         2     'h0   
+# ----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 4365000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::156 133 159 37
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 4365000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 4375000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 4445000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:2]. Queue Size: 1
+# Transaction Details:
+# ----------------------------------------
+# Name       Type             Size  Value 
+# ----------------------------------------
+# req        axi_slave_trans  -     @2499 
+#   awready  integral         1     'h0   
+#   awvalid  integral         1     'h1   
+#   awsize   integral         3     'h4   
+#   awburst  integral         2     'h1   
+#   awlen    integral         8     'h4   
+#   awstrb   integral         17    'h8993
+#   awid     integral         6     'h2   
+#   awaddr   integral         32    'hbd  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
+#   arready  integral         1     'h0   
+#   arvalid  integral         1     'h0   
+#   arid     integral         6     'h0   
+#   araddr   integral         32    'h0   
+#   arstrb   integral         17    'h0   
+#   arsize   integral         3     'h0   
+#   arlen    integral         8     'h0   
+#   arburst  integral         2     'h0   
+#   rready   integral         1     'h0   
+#   rvalid   integral         1     'h0   
+#   rdata    integral         128   'h0   
+#   rid      integral         6     'h0   
+#   rlast    integral         1     'h0   
+#   rresp    integral         2     'h0   
+# ----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 4445000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::156 133 159 37
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 4445000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 4485000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 4485000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 4845000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 4845000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 5245000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 5245000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 5685000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 5685000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:4
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6035000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6035000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 6035000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 6045000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:1]. Queue Size: 1
+# Transaction Details:
+# ----------------------------------------
+# Name       Type             Size  Value 
+# ----------------------------------------
+# req        axi_slave_trans  -     @2511 
 #   awready  integral         1     'h0   
 #   awvalid  integral         1     'h1   
 #   awsize   integral         3     'h4   
 #   awburst  integral         2     'h1   
 #   awlen    integral         8     'h0   
-#   awstrb   integral         17    'h5703
-#   awid     integral         6     'hb   
-#   awaddr   integral         32    'he6  
+#   awstrb   integral         17    'hf9cb
+#   awid     integral         6     'h1   
+#   awaddr   integral         32    'h5d  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
 #   arready  integral         1     'h0   
 #   arvalid  integral         1     'h0   
 #   arid     integral         6     'h0   
@@ -1336,55 +1023,31 @@
 #   rresp    integral         2     'h0   
 # ----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(34) @ 1155000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to read_queue[ARID:13]. Queue Size: 1
-# Transaction Details:
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type             Size  Value                                               
-# ----------------------------------------------------------------------------------------------------------
-# req                            axi_slave_trans  -     @2616                                               
-#   awready                      integral         1     'h0                                                 
-#   awvalid                      integral         1     'h0                                                 
-#   awsize                       integral         3     'h0                                                 
-#   awburst                      integral         2     'h0                                                 
-#   awlen                        integral         8     'h0                                                 
-#   awstrb                       integral         17    'h0                                                 
-#   awid                         integral         6     'h0                                                 
-#   awaddr                       integral         32    'h0                                                 
-#   arready                      integral         1     'h1                                                 
-#   arvalid                      integral         1     'h1                                                 
-#   arid                         integral         6     'hd                                                 
-#   araddr                       integral         32    'h81                                                
-#   arstrb                       integral         17    'h886d                                              
-#   arsize                       integral         3     'h4                                                 
-#   arlen                        integral         8     'h4                                                 
-#   arburst                      integral         2     'h1                                                 
-#   rready                       integral         1     'h0                                                 
-#   rvalid                       integral         1     'h0                                                 
-#   rdata                        integral         128   'h0                                                 
-#   rid                          integral         6     'h0                                                 
-#   rlast                        integral         1     'h0                                                 
-#   rresp                        integral         2     'h0                                                 
-#   begin_time                   time             64    1115000                                             
-#   depth                        int              32    'd2                                                 
-#   parent sequence (name)       string           9     a_ar_seqc                                           
-#   parent sequence (full name)  string           52    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h.a_ar_seqc
-#   sequencer                    string           42    uvm_test_top.env_h.axi_s_agt.ar_agt.seqr_h          
-# ----------------------------------------------------------------------------------------------------------
-# 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 1215000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:6]. Queue Size: 3
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 6045000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::160 240 240 232 247
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 6045000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6055000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6075000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 6075000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 6115000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:15]. Queue Size: 1
 # Transaction Details:
 # ----------------------------------------
 # Name       Type             Size  Value 
 # ----------------------------------------
-# req        axi_slave_trans  -     @2628 
+# req        axi_slave_trans  -     @2611 
 #   awready  integral         1     'h0   
 #   awvalid  integral         1     'h1   
 #   awsize   integral         3     'h4   
 #   awburst  integral         2     'h1   
-#   awlen    integral         8     'h4   
-#   awstrb   integral         17    'h5382
-#   awid     integral         6     'h6   
-#   awaddr   integral         32    'hc2  
+#   awlen    integral         8     'h0   
+#   awstrb   integral         17    'h51b0
+#   awid     integral         6     'hf   
+#   awaddr   integral         32    'h5d  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
 #   arready  integral         1     'h0   
 #   arvalid  integral         1     'h0   
 #   arid     integral         6     'h0   
@@ -1401,20 +1064,31 @@
 #   rresp    integral         2     'h0   
 # ----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 1305000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:12]. Queue Size: 3
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 6115000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::254
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 6115000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6115000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 6115000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6125000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 6185000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:16]. Queue Size: 1
 # Transaction Details:
 # ----------------------------------------
 # Name       Type             Size  Value 
 # ----------------------------------------
-# req        axi_slave_trans  -     @2672 
+# req        axi_slave_trans  -     @2627 
 #   awready  integral         1     'h0   
 #   awvalid  integral         1     'h1   
 #   awsize   integral         3     'h4   
 #   awburst  integral         2     'h1   
-#   awlen    integral         8     'h4   
-#   awstrb   integral         17    'h304d
-#   awid     integral         6     'hc   
-#   awaddr   integral         32    'hde  
+#   awlen    integral         8     'h0   
+#   awstrb   integral         17    'h4574
+#   awid     integral         6     'h10  
+#   awaddr   integral         32    'h5d  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
 #   arready  integral         1     'h0   
 #   arvalid  integral         1     'h0   
 #   arid     integral         6     'h0   
@@ -1431,20 +1105,70 @@
 #   rresp    integral         2     'h0   
 # ----------------------------------------
 # 
-# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(28) @ 1405000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:5]. Queue Size: 1
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 6185000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::254
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 6185000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6195000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 6205000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:2]. Queue Size: 1
+# Transaction Details:
+# -----------------------------------------
+# Name       Type             Size  Value  
+# -----------------------------------------
+# req        axi_slave_trans  -     @2635  
+#   awready  integral         1     'h0    
+#   awvalid  integral         1     'h1    
+#   awsize   integral         3     'h4    
+#   awburst  integral         2     'h1    
+#   awlen    integral         8     'h0    
+#   awstrb   integral         17    'h19b58
+#   awid     integral         6     'h2    
+#   awaddr   integral         32    'h5d   
+#   wdata    integral         128   'h0    
+#   wlast    integral         1     'h0    
+#   wdata    integral         128   'h0    
+#   wstrb    integral         17    'h0    
+#   wready   integral         1     'h0    
+#   wvalid   integral         1     'h0    
+#   arready  integral         1     'h0    
+#   arvalid  integral         1     'h0    
+#   arid     integral         6     'h0    
+#   araddr   integral         32    'h0    
+#   arstrb   integral         17    'h0    
+#   arsize   integral         3     'h0    
+#   arlen    integral         8     'h0    
+#   arburst  integral         2     'h0    
+#   rready   integral         1     'h0    
+#   rvalid   integral         1     'h0    
+#   rdata    integral         128   'h0    
+#   rid      integral         6     'h0    
+#   rlast    integral         1     'h0    
+#   rresp    integral         2     'h0    
+# -----------------------------------------
+# 
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 6205000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::254
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 6205000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6215000: uvm_test_top.env_h.axi_m_agt.aw_agt.seqr_h@@aw_seqc [axi_m_aw_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6235000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 6235000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(30) @ 6295000: uvm_test_top.env_h.mem_h [axi_mem_model] Pushed to write_queue[AWID:3]. Queue Size: 1
 # Transaction Details:
 # ----------------------------------------
 # Name       Type             Size  Value 
 # ----------------------------------------
-# req        axi_slave_trans  -     @2712 
+# req        axi_slave_trans  -     @2643 
 #   awready  integral         1     'h0   
 #   awvalid  integral         1     'h1   
 #   awsize   integral         3     'h4   
 #   awburst  integral         2     'h1   
-#   awlen    integral         8     'h6   
-#   awstrb   integral         17    'hd4d1
-#   awid     integral         6     'h5   
-#   awaddr   integral         32    'hc6  
+#   awlen    integral         8     'h0   
+#   awstrb   integral         17    'he2b3
+#   awid     integral         6     'h3   
+#   awaddr   integral         32    'h5d  
+#   wdata    integral         128   'h0   
+#   wlast    integral         1     'h0   
+#   wdata    integral         128   'h0   
+#   wstrb    integral         17    'h0   
+#   wready   integral         1     'h0   
+#   wvalid   integral         1     'h0   
 #   arready  integral         1     'h0   
 #   arvalid  integral         1     'h0   
 #   arid     integral         6     'h0   
@@ -1461,12 +1185,16 @@
 #   rresp    integral         2     'h0   
 # ----------------------------------------
 # 
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 2000000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(104) @ 6295000: uvm_test_top.env_h.mem_h [axi_mem_model] write_data_of_each_transaction::243
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sb/axi_mem_model.sv(111) @ 6295000: uvm_test_top.env_h.mem_h [axi_mem_model] write_excute_complete_successfully
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(46) @ 6295000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] Base_Body_seqcs_start's
+# UVM_INFO D:/AMBA/AXI4_new/sim/../src/sequences/master_sequences/axi_master_seqc_base.sv(75) @ 6295000: uvm_test_top.env_h.axi_m_agt.w_agt.seqr_h@@w_seqc [axi_m_w_channel_seqc] lawlen:0
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 8325000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   51
+# UVM_INFO :  157
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
@@ -1475,13 +1203,11 @@
 # [RNTST]     1
 # [TEST_DONE]     1
 # [UVMTOP]     1
-# [ar_m_chennal_seqc]     1
-# [axi_m_aw_channel_seqc]     1
-# [axi_m_w_channel_seqc]     1
-# [axi_mem_model]    40
+# [axi_m_aw_channel_seqc]    25
+# [axi_m_w_channel_seqc]    50
+# [axi_mem_model]    75
 # [axi_r_channel_s_drv]     1
-# [axi_s_ar_channel_seqc]     1
 # ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 2 us  Iteration: 54  Instance: /axi_tb_top
-# End time: 16:08:01 on Jun 22,2026, Elapsed time: 0:00:03
-# Errors: 0, Warnings: 1
+#    Time: 8325 ns  Iteration: 54  Instance: /axi_tb_top
+# End time: 00:16:38 on Jun 29,2026, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 3

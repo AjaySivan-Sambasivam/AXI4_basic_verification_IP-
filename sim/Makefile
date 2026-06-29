@@ -70,7 +70,7 @@ INC_DIRS += +incdir+$(SRC_DIR)/slave/monitors/r_channel
 RTL_FILES += $(wildcard $(RTL_DIR)/*.v) $(wildcard $(RTL_DIR)/*.sv)
 
 # Explicit Package Order (Crucial for resolving structural dependencies)
-PKG_FILES += $(SRC_DIR)/packages/*.sv
+PKG_FILES += $(SRC_DIR)/packages/axi_package.sv
 #PKG_FILES += $(SRC_DIR)/packages/axi_seq_pkg.sv
 #PKG_FILES += $(SRC_DIR)/packages/axi_test_pkg.sv
 

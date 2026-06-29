@@ -2,19 +2,19 @@ onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate -radix unsigned /axi_tb_top/clk
 add wave -noupdate -radix unsigned /axi_tb_top/rstn
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/aclk
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/aresetn
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awvalid
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awready
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awaddr
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awsize
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awlen
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awburst
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awid
-add wave -noupdate -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awstrb
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/aclk
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/aresetn
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awvalid
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awready
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awaddr
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awsize
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awlen
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awburst
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awid
+add wave -noupdate -expand -group aw_channel_master_if -radix unsigned /axi_tb_top/mif/awstrb
 add wave -noupdate -expand -group w_channel_master_if /axi_tb_top/mif/wvalid
 add wave -noupdate -expand -group w_channel_master_if /axi_tb_top/mif/wready
-add wave -noupdate -expand -group w_channel_master_if /axi_tb_top/mif/wdata
+add wave -noupdate -expand -group w_channel_master_if -radix unsigned /axi_tb_top/mif/wdata
 add wave -noupdate -expand -group w_channel_master_if /axi_tb_top/mif/wstrb
 add wave -noupdate -expand -group w_channel_master_if /axi_tb_top/mif/wlast
 add wave -noupdate -group ar_channel_master_if -radix unsigned /axi_tb_top/mif/arvalid
@@ -145,11 +145,11 @@ add wave -noupdate -group {slave_master_clocking_siganls } /axi_tb_top/sif/slave
 add wave -noupdate -group {slave_master_clocking_siganls } /axi_tb_top/sif/slave_mon_cb/awready
 add wave -noupdate -group {slave_master_clocking_siganls } /axi_tb_top/sif/slave_mon_cb/arready
 add wave -noupdate -group {slave_master_clocking_siganls } /axi_tb_top/sif/slave_mon_cb/slave_mon_cb_event
-add wave -noupdate -expand -group w_channel_slave_if /axi_tb_top/sif/wvalid
-add wave -noupdate -expand -group w_channel_slave_if /axi_tb_top/sif/wready
-add wave -noupdate -expand -group w_channel_slave_if /axi_tb_top/sif/wdata
-add wave -noupdate -expand -group w_channel_slave_if /axi_tb_top/sif/wstrb
-add wave -noupdate -expand -group w_channel_slave_if /axi_tb_top/sif/wlast
+add wave -noupdate -group w_channel_slave_if /axi_tb_top/sif/wvalid
+add wave -noupdate -group w_channel_slave_if /axi_tb_top/sif/wready
+add wave -noupdate -group w_channel_slave_if /axi_tb_top/sif/wdata
+add wave -noupdate -group w_channel_slave_if /axi_tb_top/sif/wstrb
+add wave -noupdate -group w_channel_slave_if /axi_tb_top/sif/wlast
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {380950 ps} 0}
 quietly wave cursor active 1

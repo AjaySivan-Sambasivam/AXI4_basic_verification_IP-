@@ -45,6 +45,13 @@ class axi_slave_trans extends uvm_sequence_item;
         `uvm_field_int(awid, UVM_ALL_ON)
         `uvm_field_int(awaddr, UVM_ALL_ON)
 
+        `uvm_field_int(wdata, UVM_ALL_ON)
+        `uvm_field_int(wlast, UVM_ALL_ON)
+        `uvm_field_int(wdata, UVM_ALL_ON)
+        `uvm_field_int(wstrb, UVM_ALL_ON)
+        `uvm_field_int(wready, UVM_ALL_ON)
+        `uvm_field_int(wvalid, UVM_ALL_ON)
+
         `uvm_field_int(arready, UVM_ALL_ON)
         `uvm_field_int(arvalid, UVM_ALL_ON)
         `uvm_field_int(arid, UVM_ALL_ON)

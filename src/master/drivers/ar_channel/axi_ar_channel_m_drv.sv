@@ -15,13 +15,13 @@ class axi_ar_channel_m_drv extends uvm_driver#(axi_master_trans);
 
     task init();
         @(vif.master_drv_cb);
-        vif.arid<=0;
-        vif.arvalid<=0;
-        vif.araddr<=0;
-        vif.arlen<=0;
-        vif.arsize<=0;
-        vif.arstrb<=0;
-        vif.arburst<=0;
+        vif.master_drv_cb.arid<=0;
+        vif.master_drv_cb.arvalid<=0;
+        vif.master_drv_cb.araddr<=0;
+        vif.master_drv_cb.arlen<=0;
+        vif.master_drv_cb.arsize<=0;
+        vif.master_drv_cb.arstrb<=0;
+        vif.master_drv_cb.arburst<=0;
 
     endtask 
 

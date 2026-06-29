@@ -4,7 +4,6 @@ class axi_aw_channel_s_drv extends uvm_driver#(axi_slave_trans);
     virtual axi_slave_if vif;
 
     axi_mem_model mem; 
-
     int delay; 
 
     function new(string name="axi_aw_channel_s_drv", uvm_component parent);

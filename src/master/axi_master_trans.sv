@@ -45,6 +45,12 @@ class axi_master_trans extends uvm_sequence_item;
             `uvm_field_int(awid, UVM_ALL_ON)
             `uvm_field_int(awaddr, UVM_ALL_ON)
 
+            `uvm_field_int(wdata, UVM_ALL_ON)
+            `uvm_field_int(wstrb, UVM_ALL_ON)
+            `uvm_field_int(wlast, UVM_ALL_ON)
+            `uvm_field_int(wready, UVM_ALL_ON)
+            `uvm_field_int(wvalid, UVM_ALL_ON)
+
             `uvm_field_int(arready, UVM_ALL_ON)
             `uvm_field_int(arvalid, UVM_ALL_ON)
             `uvm_field_int(arsize, UVM_ALL_ON)
@@ -64,7 +70,7 @@ class axi_master_trans extends uvm_sequence_item;
 
         constraint ar_id {arid inside {[1:16]};}
         constraint aw_id {awid inside {[1:16]};}
-        
+        constraint aw_len {awlen inside {[0:16]};}
 
     function new(string name="axi_master_trans");
         super.new(name);
